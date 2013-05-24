@@ -35,6 +35,7 @@
   <html>
     <head id="head" onload="sizePage()">
     <link rel="stylesheet" type="text/css" href="basic.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <div id="topperO">
             <div id="topper" style="width:500px; margin:0 auto;z-index:0;">
                 <img id="top" style="margin-top:0; border: 1;" src="./geometry/topbar.png"/>
@@ -76,17 +77,17 @@
 				</div>
 			  </td>
             </tr>
-            <tr id="table_<?PHP ECHO $topic1[0] ?>">
+            <tr id="table_<?PHP ECHO $topic1[0] ?>" style="height:85px; width:225px>
               <td style="height:85px; width:225px">
 	
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
 							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic1[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic1[0]?>,'<?PHP echo $topic1[1] ?>','<?PHP echo $topic1[3] ?>','<?PHP echo $topic1[4] ?>');"></td>
 						</tr>
-						<tr style="width:80px; margin: 2px;">
+						<tr style="width:200px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic1[1] ?></td>
 						</tr>
-						<tr style="width:80px;" cellspacing="10">
+						<tr style="width:200px;" cellspacing="10">
 							<td id="subtitle" style="font-size:small;"><?PHP ECHO $topic1[3] ?></td>
 						</tr>
 					</table>
@@ -97,7 +98,7 @@
               <td style="height:85px; width:225px">
     
 					<table border="0" cellspacing="5">
-						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
+						<tr style="width:80px; height:5px; border:1px black; background:#feffb0">
 							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic2[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic2[0]?>,'<?PHP echo $topic2[1] ?>','<?PHP echo $topic2[3] ?>','<?PHP echo $topic2[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
@@ -258,9 +259,9 @@ function sizePage(){
     var b = document.getElementById("centered");
     b.style.width = (screen.availWidth / 2);
     var f = document.getElementById("headerCentered");
-    f.style.width = ((screen.availWidth / 2) + 250);
+    f.style.width = ((screen.availWidth / 2) );
     var g = document.getElementById("topper");
-    g.style.width = ((screen.availWidth / 2) + 250);
+    g.style.width = ((screen.availWidth / 2) + 250 );
     var h = document.getElementById("pres");
     h.style.marginLeft = (((screen.availWidth /2)/2)/2 + 25);
 }

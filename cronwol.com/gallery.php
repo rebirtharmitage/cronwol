@@ -1,5 +1,5 @@
 <html>
-
+    
 <?PHP
 	$topic = "topic";
         $con = mysql_connect("cwcronwol.db.11152395.hostedresource.com","cwcronwol", "cl0udStrif3#");
@@ -32,6 +32,7 @@
   <html>
     <head id="head" onload="sizePage()">
     <link rel="stylesheet" type="text/css" href="basic.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <div id="topperO">
             <div id="topper" style="width:500px; margin:0 auto;z-index:0;">
                 <img id="top" style="margin-top:0; border: 1;" src="./geometry/topbar.png"/>
