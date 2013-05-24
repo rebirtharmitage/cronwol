@@ -4,3 +4,4 @@
 *.jar
 *.war
 *.ear
+/cronwol.com/nbproject/private/
