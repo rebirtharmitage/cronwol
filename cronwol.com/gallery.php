@@ -2,11 +2,11 @@
 
 <?PHP
 	$topic = "topic";
-        $con = mysql_connect("localhost","root", "");
+        $con = mysql_connect("cwcronwol.db.11152395.hostedresource.com","cwcronwol", "cl0udStrif3#");
         if (!$con){ die('Could not connect: ' . mysql_error());}
 
 	//Insure Database hooked in here is for the current user!!!
-        mysql_select_db("cw.cronwol") or die("Unable to connected to Database." . mysql_error());
+        mysql_select_db("cwcronwol") or die("Unable to connected to Database." . mysql_error());
 	
 	$maxArticleIDQuery = mysql_query("SELECT MAX(id) FROM gallery");
 	$max = mysql_fetch_array($maxArticleIDQuery);
