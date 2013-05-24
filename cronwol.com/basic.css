@@ -1,5 +1,11 @@
 #backdrop {margin:-30px;padding:0px; width:90%; z-index:-2; position:absolute;}
-
+a{
+    
+    font-family: 'PT Sans';
+    color: white;
+    font-style: normal;
+    text-decoration: none;
+}
 body{
  background-image:url('./geometry/background.png');
  background-repeat:repeat;
@@ -15,7 +21,7 @@ body{
 
 #headerContainer{
     font-family: 'PT Sans';
-    width: 500px;
+    width: 1000px;
     height: 40;
     margin-right: 0px;
     margin-left: -10px;
@@ -33,10 +39,11 @@ body{
 
 #twit{
     margin-top: 10;
+    clip: rect(1px, 0px, 0px, 0px);
+    margin-right: 10px;
 }
 
 #topper{
-    
     background-color: white;
     height:40;
     margin-right: -20px;
@@ -46,11 +53,33 @@ body{
 }
 
 #topperO{
-    
     background-color: white;
     height:60;
     margin-right: -20px;
     margin-left: -10px;
     margin-bottom: 0px;
     margin-top: 5px;
+}
+
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url(./geometry/light.png) repeat;
+    text-align:center;
+}
+#lightbox p {
+        text-align:right; 
+        color:#fff; 
+        margin-right:50px; 
+        font-size:36px;
+        z-index: 2;
+}
+#lightbox img {
+        box-shadow:0 0 25px #111;
+        -webkit-box-shadow:0 0 25px #111;
+        -moz-box-shadow:0 0 25px #111;
+        max-width:940px;
 }

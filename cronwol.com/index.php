@@ -6,7 +6,7 @@
         if (!$con){ die('Could not connect: ' . mysql_error());}
 
 	//Insure Database hooked in here is for the current user!!!
-        mysql_select_db("cw.tattoosbynikki") or die("Unable to connected to Database." . mysql_error());
+        mysql_select_db("cw.cronwol") or die("Unable to connected to Database." . mysql_error());
 	
 	$maxArticleIDQuery = mysql_query("SELECT MAX(id) FROM articles");
 	$max = mysql_fetch_array($maxArticleIDQuery);
@@ -46,12 +46,13 @@
             <div id="headerCentered" style="width:500px; margin:0 auto;z-index:0;">
 
                 <table width="1000px">
-                    <tr id="topbar" style="width: 1000px; height:40; margin-top:0;  ">
-                        <pre style=" color: white; font-family: 'PT Sans'; font-size: 24; margin-top:5; margin-bottom: -5">                                         Home  |   Gallery   |   About Us  |   Contact Us</pre>
+                    <tr id="topbar" rowspan="2" border="2"style="border-color: black; width: 500px; height:40;">
+                        <pre id="pres" style=" color: white; font-family: 'PT Sans'; font-size: 24; margin-top:5; margin-bottom: -15; margin-left: 250px"><a href="./index.php">Home</a>  |   <a href="./gallery.php">Gallery </a>  |  <a href="./aboutUs.php">About Us</a>  |   <a href="./contactUs.php">Contact Us</a></pre>
+                    </tr><tr>
                         
-                        <img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/facebook.png"/>
-                        <img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/twitter.png"/>
-                        <img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/googleplus.png"/>
+                    <a href="http://www.facebook.com/Cronwol"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/facebook.png"/></a>
+                    <a href="http://www.twitter.com"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/twitter.png"/></a>
+                    <a href="https://plus.google.com/u/0/b/115513205466882470824/115513205466882470824/"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/googleplus.png"/></a>
                         <img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/youtube.png"/>
                         
                     </tr>
@@ -61,6 +62,8 @@
     
     </head>
     <body id="body" style="font-family:'PT Sans';" onload="sizePage()">
+        
+        
     <div id="centered" style="width:500px; margin:0 auto;z-index:0;">
         <div id="backdrop" style="margin-left:-10; margin-bottom: -10"><img src="./geometry/test.png" alt="Big Boat"></div>
         <table border="0" cellspacing="0" style="background:white">
@@ -78,7 +81,7 @@
 	
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
-							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic1[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic1[0]?>,'<?PHP echo $topic1[1] ?>','<?PHP echo $topic1[3] ?>');"></td>
+							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic1[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic1[0]?>,'<?PHP echo $topic1[1] ?>','<?PHP echo $topic1[3] ?>','<?PHP echo $topic1[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic1[1] ?></td>
@@ -95,7 +98,7 @@
     
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
-							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic2[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic2[0]?>,'<?PHP echo $topic2[1] ?>','<?PHP echo $topic2[3] ?>');"></td>
+							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic2[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic2[0]?>,'<?PHP echo $topic2[1] ?>','<?PHP echo $topic2[3] ?>','<?PHP echo $topic2[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic2[1] ?></td>
@@ -111,7 +114,7 @@
     
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
-							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic3[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic3[0]?>,'<?PHP echo $topic3[1] ?>','<?PHP echo $topic3[3] ?>');"></td>
+							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic3[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic3[0]?>,'<?PHP echo $topic3[1] ?>','<?PHP echo $topic3[3] ?>','<?PHP echo $topic3[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic3[1] ?></td>
@@ -128,7 +131,7 @@
     
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
-							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic4[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic4[0]?>,'<?PHP echo $topic4[1] ?>','<?PHP echo $topic4[3] ?>');"></td>
+							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic4[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic4[0]?>,'<?PHP echo $topic4[1] ?>','<?PHP echo $topic4[3] ?>','<?PHP echo $topic4[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic4[1] ?></td>
@@ -145,7 +148,7 @@
     
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
-							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic5[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic5[0]?>,'<?PHP echo $topic5[1] ?>','<?PHP echo $topic5[3] ?>');"></td>
+							<td rowspan="3" style="background:white; margin:2px;"><img style="margin:4px;" src="<?PHP ECHO $topic5[5] ?>" alt="" onClick="loadArticle(<?PHP echo $topic5[0]?>,'<?PHP echo $topic5[1] ?>','<?PHP echo $topic5[3] ?>','<?PHP echo $topic5[4] ?>');"></td>
 						</tr>
 						<tr style="width:80px; margin: 2px;">
 							<td style="left-margin: 8px;"><?PHP ECHO $topic5[1] ?></td>
@@ -158,42 +161,59 @@
               </td>
             </tr>
         </table>
-        
-        <div id="twit">
-<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 6,
-  interval: 6000,
-  width: 380,
-  height: 260,
-  theme: {
-    shell: {
-      background: '#FFCC00',
-      color: '#003366'
-    },
-    tweets: {
-      background: '#1d1d1d',
-      color: '#ffffff',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: false,
-    hashtags: true,
-    timestamp: true,
-    avatars: false,
-    behavior: 'all'
-  }
-}).render().setUser('cronwol').start();
-</script>
-</div>
-	</div>
-    </body>
+        <table style="margin-top:5">
+            <tr>
+                <td>
+                <div id="twit">
+                    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+                    <script>
+                    new TWTR.Widget({
+                      version: 2,
+                      type: 'profile',
+                      rpp: 6,
+                      interval: 6000,
+                      width: 380,
+                      height: 300,
+                      theme: {
+                        shell: {
+                          background: '#ffffff',
+                          color: '#003366'
+                        },
+                        tweets: {
+                          background: '#1d1d1d',
+                          color: '#ffffff',
+                          links: '#4aed05'
+                        }
+                      },
+                      features: {
+                        scrollbar: false,
+                        loop: false,
+                        live: false,
+                        hashtags: true,
+                        timestamp: true,
+                        avatars: false,
+                        behavior: 'all'
+                      }
+                    }).render().setUser('cronwol').start();
+                    </script>
+                </div>
+            </td>
+            <td>
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                
+                <div class="fb-comments" style="background:white"data-href="http://www.facebook.com/Cronwol?skip_nax_wizard=true" data-width="380" data-num-posts="5"></div>
+            </td>
+            </tr>
+        </table>
+    </div>
+</body>
     
 <script>// Javascript Code
 
@@ -241,10 +261,12 @@ function sizePage(){
     f.style.width = ((screen.availWidth / 2) + 250);
     var g = document.getElementById("topper");
     g.style.width = ((screen.availWidth / 2) + 250);
+    var h = document.getElementById("pres");
+    h.style.marginLeft = (((screen.availWidth /2)/2)/2 + 25);
 }
 
 
-function loadArticle(a, b, d){
+function loadArticle(a, b, d, im){
 
     for (var i = minValue; i <= maxValue; i++){
         if (i == a){
@@ -262,7 +284,7 @@ function loadArticle(a, b, d){
 	var image=new Image();
 		image.onload=function(){
 			ctx.globalAlpha=1;
-			ctx.drawImage(image,0,0);
+			ctx.drawImage(image,0,0, (image.width), (image.height));
 			ctx.globalAlpha=0.6;
 			ctx.fillStyle="black"; 
 			ctx.fillRect(0,325,550,150);
@@ -275,9 +297,9 @@ function loadArticle(a, b, d){
                         ctx.fillStyle="white";
                         ctx.fillText(d,10,395);
 		};
-	image.src="./geometry/" + a + ".png";
-	image.width = '50%';
-	image.height = 'auto';
+	image.src=im;
+	image.width = 800;
+	image.height = 550;
 }
 
 var sub1 = document.getElementById("subCanvas_1");
