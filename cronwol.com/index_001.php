@@ -1,26 +1,29 @@
 <html>
 
 <?PHP
+        include_once 'localCred.php';
 	$topic = "topic";
-        $con = mysql_connect("cwcronwol.db.11152395.hostedresource.com","cwcronwol", "cl0udStrif3#");
+        $con = mysql_connect($host,$db_name,$db_pass);
         if (!$con){ die('Could not connect: ' . mysql_error());}
 
-	//Insure Database hooked in here is for the current user!!!
         mysql_select_db("cwcronwol") or die("Unable to connected to Database." . mysql_error());
 	
 	$maxArticleIDQuery = mysql_query("SELECT MAX(id) FROM articles");
 	$max = mysql_fetch_array($maxArticleIDQuery);
 	$maxArticleID = $max[0];
 	$displayMax = $maxArticleID;
+        
 	if ($maxArticleID < 5){
 		$articleCount = 5 - $maxArticleID;
 	}else{
 		$articleCount = 5;
 	}
+        
 	$b = 0;
+        
 	for($a = $maxArticleID; $a >= ($maxArticleID - $articleCount); $a--){
-	$b++;
-        $result = mysql_query("SELECT * FROM articles WHERE id='".$a."'");
+            $b++;
+            $result = mysql_query("SELECT * FROM articles WHERE id='".$a."'");
 
                 while($row = mysql_fetch_array($result)){
                     ${$topic.$b}[0] = $row['id'];
@@ -32,37 +35,31 @@
                 }
         }
 ?>
-  <html>
-    <head id="head" onload="sizePage()">
-    <link rel="stylesheet" type="text/css" href="basic.css">
+<html>
+    <head>
+        
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-    <div id="topperO">
-            <div id="topper" style="width:500px; margin:0 auto;z-index:0;">
-                <img id="top" style="margin-top:0; border: 1;" src="./geometry/topbar.png"/>
-                <canvas id="tCanvas" height="60" style="z-index:-2"></canvas>
+    
+    <div id="top">
+            <div id="insideTop">
+                <img id="topbarImage" src="./geometry/topbar.png"/>
             </div>
     </div>
-        <div id="headerContainer">
-
-            <div id="headerCentered" style="width:500px; margin:0 auto;z-index:0;">
-
-                <table width="1000px">
-                    <tr id="topbar" rowspan="2" border="2"style="border-color: black; width: 500px; height:40;">
-                        <pre id="pres" style=" color: white; font-family: 'PT Sans'; font-size: 24; margin-top:5; margin-bottom: -15; margin-left: 250px"><a href="./index.php">Home</a>  |   <a href="./gallery.php">Gallery </a>  |  <a href="./aboutUs.php">About Us</a>  |   <a href="./contactUs.php">Contact Us</a></pre>
-                    </tr><tr>
-                        
+    <div id="header">
+            <div id="insideHeader">
+                    <pre id="pres"><a href="./index.php">Home</a>  |   <a href="./gallery.php">Gallery </a>  |  <a href="./aboutUs.php">About Us</a>  |   <a href="./contactUs.php">Contact Us</a></pre>
+                    
                     <a href="http://www.facebook.com/Cronwol"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/facebook.png"/></a>
                     <a href="http://www.twitter.com"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/twitter.png"/></a>
                     <a href="https://plus.google.com/u/0/b/115513205466882470824/115513205466882470824/"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/googleplus.png"/></a>
-                        <img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/youtube.png"/>
-                        
-                    </tr>
-                </table>
+                    <a href="http://www.youtube.com"><img id="top" style="margin-top:5; border: 1; height: 40;" src="./geometry/youtube.png"/></a>
+
             </div>
         </div>
     
     </head>
-    <body id="body" style="font-family:'PT Sans';" onload="sizePage()">
+    <body>
         
         
     <div id="centered" style="width:500px; margin:0 auto;z-index:0;">
@@ -77,8 +74,8 @@
 				</div>
 			  </td>
             </tr>
-            <tr id="table_<?PHP ECHO $topic1[0] ?>" style="height:85px; width:225px>
-              <td style="height:85px; width:225px">
+            <tr id="table_<?PHP ECHO $topic1[0] ?>" style="height:85px; width:225px">
+              <td style="height:85">
 	
 					<table border="0" cellspacing="5">
 						<tr style="width:85px; height:5px; border:1px black; background:#feffb0">
@@ -218,6 +215,15 @@
     
 <script>// Javascript Code
 
+window.onload = function sizingPage(){
+    var a = document.getElementById("top");
+    a.style.width = screen.availWidth;
+    var b = document.getElementById("insideTop");
+    b.style.width = (screen.availWidth / 2);
+    b.style.leftMargin = (screen.availWidth / 4);
+}
+
+
 var minValue = <?PHP ECHO ($articleCount - 4) ?>;
 var maxValue = <?PHP ECHO $displayMax ?>;
 
@@ -255,7 +261,7 @@ image.width = '50%';
 image.height = 'auto';
 
 
-function sizePage(){
+window.onload = function sizePage(){
     var b = document.getElementById("centered");
     b.style.width = (screen.availWidth / 2);
     var f = document.getElementById("headerCentered");
