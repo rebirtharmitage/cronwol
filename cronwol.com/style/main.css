@@ -1,0 +1,145 @@
+/* 
+
+    Document   : main
+    Created on : May 25, 2013, 7:03:52 AM
+    Author     : Jonathon Cronin
+    Description: 
+    Purpose of the stylesheet follows.
+
+*/
+
+root { 
+    display: block;
+}
+
+#backdrop{
+    z-index: -2;
+    position: absolute;
+}
+
+body{
+    background-image: url('../geometry/background.png');
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: small;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#top, #insideTop,#insideHeader{
+    width:80px;
+    height: 60px;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    border-top-style: none;
+    margin-right: 0px;
+    margin-left: -10px;
+    margin-bottom: -20px;
+    margin-top: 0px;
+    z-index: 1;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: small;
+    color:white;
+}
+
+
+#header{
+    width:80px;
+    height: 40px;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    border-top-style: none;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    z-index: 1;
+    background-image:url('../geometry/headerBackground.png');
+    background-repeat: repeat-x;
+}
+
+a.twit{
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: small;
+    color:white;
+}
+
+a.social{
+    font-family: 'PT Sans';
+    font-style: normal;
+    color:white;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: large;
+    color:white;
+}
+
+#social{
+    width:auto;
+    height:40px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    text-decoration: none;
+    font-size: 22px;
+    color:white;
+    text-align: center;
+}
+
+#socialLinks{
+    position: absolute;
+    z-index: 2;
+    margin-left: -180px;
+}
+
+#kaleidoscope{
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+#twit{
+    font-family: 'PT Sans';
+    font-size: small;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+#fb-root{
+    margin-top: 5px;
+}
+
+#twitter{
+    font-family: 'PT Sans';
+    font-size: 10pt;
+}
+
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('../geometry/light.png') repeat;
+    text-align:center;
+}
+#lightbox p {
+        text-align:right; 
+        color:#fff; 
+        margin-right:50px; 
+        font-size:36px;
+        z-index: 2;
+}
+#lightbox img {
+        box-shadow:0 0 25px #111;
+        -webkit-box-shadow:0 0 25px #111;
+        -moz-box-shadow:0 0 25px #111;
+        max-width:940px;
+}
