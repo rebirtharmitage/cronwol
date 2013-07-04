@@ -15,8 +15,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<p id="first_test">this is alpha testing</p>
-<p id="first_second">this is the second testing</p>
+<p id="first_description">Please select either a provider or a service below</p>
+<form id="first_stage">
+
+</form>
 <button id="hide">Hide</button>
 <button id="show">Show</button>
 </body>
