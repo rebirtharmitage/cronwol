@@ -1,0 +1,102 @@
+Database Architecture
+
+    Tier 1: Scheduality
+        Fields:
+            1. start_date
+            2. open_time
+            3. closing_time
+            4. number_of_staff
+            5. type_of_business
+            6. number_of_services
+            7. admin_id
+            
+    Tier 1.5: Users
+        Fields: 
+            1. user_id
+            2. username
+            3. user_password
+            4. service_credits
+            5. date_started
+            6. last_login
+            7. number_of_logins
+            8. number_of_scheduled_items
+            9. loyalty_rating
+            
+    Tier 2: Providers
+        Fields:
+            1. provider_id
+            2. provider_login_username
+            3. provider_login_password
+            4. provider_services
+            5. provider_schedule_normal
+            
+    Tier 3: Services
+        Fields:
+            1. service_id
+            2. service_name
+            3. service_type
+            4. service_time_increments
+            5. service_pricing
+            
+    Tier 4: Events
+        Fields:
+            1. event_id
+            2. user_id
+            3. provider_id
+            4. multi_provider
+            5. multi_provider_ids
+            6. service_id
+            7. start_time
+            8. end_time
+            9. location_id
+            10. email_sent
+            11. customer_confirmed
+            12. loyalty_points
+            
+            
+    Methodoloy : Design of the system queries
+    
+        Create An Event
+        
+            Steps in process...
+            
+                1. user submits request through webpage interface
+                2. form sends POST to the server and starts PHP backend
+                3. request is already filtered by the javascript front end so no filtering is needed here
+                4. event table entry is created with the customer's information and event
+                5. information is emailed to provider and the user
+                6. confirmation webpage is brought up for the user
+                
+                Form Information [from webpage in step 2]
+                
+                    user is logged into the system to get to this page so that information is submitted from the
+                    customer's cookie information on the site at the submission time.
+                    
+                    event id is created by the page and is a unique 12 character VARCHAR 
+                    
+                    provider id information comes from the webpage javascript use XML lookups to indicate who is 
+                    available based on the schdule prior to logging in.
+                    
+                    service selected from menu again from the webpage
+                    
+                    start_time is a time stamp again filtered from the front end webpage
+                    
+                    end_time is a duplicate from the start_time except it is set by the service_time_increments value
+                    
+                    location_id again comes from the website scheduling for the business which is filtered through
+                    javascript to the user on the front end page
+                    
+                    email_sent is a boolean value to track if the customer's information was sent via email
+                    
+                    customer_confirmed is a tracker that the business can use if the customer has paid for or have a 
+                    credit for the service.
+                    
+                    loyalty_points is a sum of the services previously listed to determine how many loyalty points to 
+                    add to the customer upon signing up for the service.
+                    
+                Process Continued...
+                
+                    After this information is put into the database it effects all other user who also are looking to 
+                    sign up for service.   This changes the way the information work by way of the Javascript lookups.
+                    
+                    
